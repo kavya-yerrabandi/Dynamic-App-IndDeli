@@ -1,0 +1,60 @@
+                
+                        <div class = "container">
+                              <h4>Make a reservation</h4>
+                           
+                               <div>
+
+                                <form role="form" name = "guestForm" novalidate>
+                                    <div class="row">
+                                        <div class = "col-sm-6">
+                                	    <div class="form-group">
+                                		    <label  for="reserveDate">Date</label>
+                                            <input data-ng-model="guestCtrl.reservation.date" name="date" type="text" class="form-control" id="reserveDate" placeholder="MM/DD/YYYY" required>
+                                	    </div>
+                                	    </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="reserveTime">Time</label>
+                                                <input data-ng-model="guestCtrl.reservation.time" name = "time" type="text" class="form-control" id="reserveTime" placeholder="HH:MM">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="reserveName">Name</label>
+                                        <input data-ng-model="guestCtrl.reservation.name" name = "text" type="text" class="form-control" id="reserveName" placeholder="Enter Your Name">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="reservePhone">Phone</label>
+                                        <input data-ng-model="guestCtrl.reservation.phone" type="tel" class="form-control" id="reservePhone" placeholder="Enter Your Phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reserveEmail">Email</label>
+                                        <input data-ng-model="guestCtrl.reservation.email" type="email" class="form-control" id="reserveEmail" placeholder="example@domain.com" required>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label for="reserveSize">Party Size</label>
+                                                <input data-ng-model="guestCtrl.reservation.number" name = "number" type="number" class="form-control" id="reserveSize" placeholder="# Guests">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <div class="form-group">
+                                                <label for="reserveSpecial">Special Need</label>
+                                                <input data-ng-model="guestCtrl.reservation.purpose" name = "purpose" type="text" class="form-control" id="reserveSpecial" placeholder="e.g. Birthday, Anniversary etc.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn large-btn btn-primary"data-ng-click="guestCtrl.placeReservation(guestForm.$valid)" >Reserve</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                        
+              
+                   

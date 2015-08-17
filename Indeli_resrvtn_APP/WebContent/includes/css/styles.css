@@ -1,0 +1,200 @@
+/*
+
+My Custom CSS
+=============
+
+
+*/
+
+
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+
+   #features{
+      text-align:center;
+   }
+
+   #features img{
+      margin-bottom:20px;
+   }
+
+
+   footer{
+      background: #24064d;
+      color:#eee;
+      font-size:100%;
+      padding:20px;
+   }
+
+
+.dropdown-toggle, #staffLogin, #guestLogin, .navbar-nav, .close {
+   background-color:#24064d ;
+   color: #340fff;
+}
+
+
+   body{
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizelegibility;
+   }
+
+
+     h1{
+      margin-top:55px;
+        border-color: transparent;
+        background-color: transparent;
+        font-family: 'Pacifico', cursive;
+     color:red;
+   }
+
+h2{
+   font-size: 200%;
+   color: #24064d;
+   font-family: 'Pacifico', cursive;
+}
+
+h3{
+   font-size: 150%;
+   color: #24064d;
+   font-family: 'Pacifico', cursive;
+}
+h4{
+   font-size: 250%
+}
+
+p{
+   font-size: 90%
+}
+
+#closeFeedback{
+   color: black;
+}
+
+/* --------------------------------------
+   Navbar
+   -------------------------------------- */
+
+   #searchInput{
+      width:200px;
+   }
+
+
+   .navbar{
+      background-color: #24064d;
+   }
+
+   .navbar-brand{
+      padding:6px 12px;
+      background-color: #24064d;;
+   }
+
+
+div.stars {
+   width: 270px;
+   display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+   float: right;
+   padding: 10px;
+   font-size: 30px;
+   color: #444;
+   transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+   content: '\f005';
+   color: #FD4;
+   transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+   color: #FE7;
+   text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+   content: '\f006';
+   font-family: FontAwesome;
+}
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+
+   #myCarousel {
+      margin-top: 0px;
+      margin-bottom: 20px;
+   }
+
+   .carousel-caption{
+      font-size: 24px;
+   }
+   .carousel-caption h4{
+      font-size: 32px;
+   }
+   #myCarousel .item{ height:400px; }
+
+   #slide1{
+      background: url('../../images/carousel_medium_01.jpg') top center;
+   }
+
+
+
+/* --------------------------------------
+   Global Styles
+   -------------------------------------- */
+
+   .well{
+      margin:20px 0;
+   }
+
+
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+
+/* Portrait & landscape phone */
+@media (max-width: 480px) {
+
+   .thumbnail .price{
+      font-size:14px;
+   }
+
+   .thumbnail .price sup{
+      font-size:10px;
+   }
+	
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+	#myCarousel .item{ height:310px; }
+
+   #slide1{
+      background: url('../../images/carousel_small_01.jpg') top center no-repeat;
+   }
+
+   .carousel-caption{
+      font-size:32px;
+   }
+   .carousel-caption h4{
+      font-size:22px;
+   }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+	#myCarousel .item{ height:500px; }
+
+   #slide1{
+      background: url('../../images/carousel_large_01.jpg') top center no-repeat;
+   }
+
+}
