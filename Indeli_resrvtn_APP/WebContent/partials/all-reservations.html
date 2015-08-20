@@ -1,5 +1,9 @@
 
 <div class = "container">
+<div class = "rescls">
+<a data-ng-click = "resCtrl.getAllReservations()" type = "submit" class="btn large-btn btn-primary">View all Reservations</a>
+</div>
+<hr>
 <table class = "table table-striped">
 	<thead>
 		<tr>
@@ -11,11 +15,10 @@
 			<th>Email</th>
 			<th>Party Size</th>
 			<th>Purpose</th>
-			<th>Delete</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
+		<tr data-ng-repeat = "reservation in resCtrl.reservationList">
 			<td>{{reservation.id}}</td>
 			<td>{{reservation.date}}</td>
 			<td>{{reservation.time}}</td>
@@ -24,8 +27,6 @@
 			<td>{{reservation.email}}</td>
 			<td>{{reservation.partySize}}</td>
 			<td>{{reservation.purpose}}</td>
-			<td><i class="fa fa-trash-o"></i></td>
-			
 		</tr>
 	</tbody>
 </table>

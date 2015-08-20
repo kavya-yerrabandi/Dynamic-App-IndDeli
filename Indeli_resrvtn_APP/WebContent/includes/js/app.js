@@ -2,7 +2,7 @@
 (function(){
 	'use strict';
 
-var app = angular.module('indApp',['ngRoute','dataControllers']);
+var app = angular.module('indApp',['ngRoute','ngMessages','dataControllers']);
 app.config(['$routeProvider',
             function ($routeProvider) {
             $routeProvider
@@ -16,10 +16,14 @@ app.config(['$routeProvider',
 				controllerAs: 'guestCtrl'
 		})      
 		.when('/staff-login',{
-			templateUrl: 'partials/staff-login.html'
+			templateUrl: 'partials/staff-login.html',
+			controller: 'AuthController',
+			controllerAs: 'authCtrl'
 		})
-		.when('/get-reservations',{
-			templateUrl: 'partials/all-reservations.html'
+		.when('/staff-login/get-reservations',{
+			templateUrl: 'partials/all-reservations.html',
+				controller: 'guestController',
+				controllerAs: 'resCtrl'	
 		})
 		.otherwise({
 			redirectTo: '/home'

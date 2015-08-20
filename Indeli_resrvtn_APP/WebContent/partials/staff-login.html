@@ -1,19 +1,36 @@
 <div class = "container">
+<div class = "headStaff" data-ng-show = "authCtrl.logDet">
+<h3>You have logged in successfully..!</h3>
+<hr>
+<a href= "#/staff-login/get-reservations" type="submit" class="btn large-btn btn-primary"> Home Page</a>
+
+</div>
+
+<div data-ng-hide = "authCtrl.logDet">
      <h4 >Login</h4>
- 		<form role="form">
+ 		<form name = staffForm role="form" novalidate>
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="example@domain.com" required>
+                <input data-ng-model = "authCtrl.auth.email" name= "email" type="email" class="form-control" id="email" placeholder="example@domain.com" required>
+            	<div data-ng-messages = "staffForm.email.$error" data-ng-if = "staffForm.email.$dirty" >
+                     <p data-ng-message = "required">*please enter the email</p>
+                     <p data-ng-message = "email">*please enter a valid format</p>
+                </div>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password" required>
+                <input data-ng-model = "authCtrl.auth.passWord" name = "password" type="password" class="form-control" id="password" placeholder="Password" required>
+            	<div data-ng-messages = "staffForm.password.$error" data-ng-if = "staffForm.password.$dirty" >
+                     <p data-ng-message = "required">*please enter the password</p>
+                </div>
             </div>
             <div class="text-center">
-                <a href = "#/staff-login/get-reservations" type="submit" class="btn large-btn btn-primary">Submit</a>
+                <a data-ng-click = "authCtrl.chkLogin(staffForm.$valid)" data-ng-disabled = "staffForm.$invalid" type="submit" class="btn large-btn btn-primary">Submit</a>
+
             </div>
       
         </form>
+      </div>
 
     </div>
    

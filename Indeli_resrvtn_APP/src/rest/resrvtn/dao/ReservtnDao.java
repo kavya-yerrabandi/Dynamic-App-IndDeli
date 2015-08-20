@@ -60,7 +60,7 @@ public class ReservtnDao {
 		ResultSet rs = null;
 		
 		try {
-			ps = con.prepareStatement("SELECT * FROM reservation WHERE ID=?");
+			ps = con.prepareStatement("SELECT * FROM guest WHERE ID=?");
 			ps.setInt(1, reservationId);
 			
 			rs = ps.executeQuery();
@@ -93,6 +93,53 @@ public class ReservtnDao {
 	}
 	
 	//Method to insert a reservation
+	/*public Reservation addReservation(Reservation reservation) throws AppException
+	{
+		Connection con = DBUtil.connectToDB();	
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try
+		{
+			ps = con.prepareStatement("INSERT INTO guest "
+			+ "(Date, Time, Name, Phone, Email, "
+			+ "PartySize, Purpose) VALUES (?, ?, ?, ?, ?, ?, ?)", 
+			PreparedStatement.RETURN_GENERATED_KEYS);
+			
+			ps.setString(1, reservation.getDate());
+			ps.setString(2, reservation.getTime());
+			ps.setString(3, reservation.getName());
+			ps.setString(4, reservation.getPhone());
+			ps.setString(5, reservation.getEmail());
+			ps.setInt(6, reservation.getPartySize());
+			ps.setString(7,reservation.getPurpose());			
+			ps.executeUpdate();
+			
+			rs = ps.getGeneratedKeys();
+
+			
+			if(rs.next())
+			{
+				reservation.setId(rs.getInt(1));
+
+			}
+		}
+		
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+			throw new AppException(e.getMessage(), e.getCause());
+		}
+		
+		finally 
+		{
+			DBUtil.closeResources(ps, rs, con);
+		}
+		
+		return reservation;
+		
+	}*/
+	
+	
 	public Reservation addReservation(Reservation reservation) throws AppException
 	{
 		Connection con = DBUtil.connectToDB();	
@@ -100,7 +147,7 @@ public class ReservtnDao {
 		ResultSet rs = null;
 		try
 		{
-			ps = con.prepareStatement("INSERT INTO reservation "
+			ps = con.prepareStatement("INSERT INTO guest "
 			+ "(Date, Time, Name, Phone, Email, "
 			+ "Party_Size, Purpose) VALUES (?, ?, ?, ?, ?, ?, ?)", 
 			PreparedStatement.RETURN_GENERATED_KEYS);
@@ -139,6 +186,7 @@ public class ReservtnDao {
 		
 	}
 	
+	
 	//Method to delete a specific reservation
 	public void delReservation(int reservationId) throws AppException
 	{	
@@ -147,7 +195,7 @@ public class ReservtnDao {
 		ResultSet rs = null;
 		
 		try {
-			ps = con.prepareStatement("DELETE from reservation WHERE ID=?");
+			ps = con.prepareStatement("DELETE from guest WHERE ID=?");
 			ps.setInt(1, reservationId);
 			ps.executeUpdate();
 		} 
@@ -169,9 +217,9 @@ public class ReservtnDao {
 		ResultSet rs = null;
 		try
 		{
-			ps = con.prepareStatement("UPDATE reservation SET "
+			ps = con.prepareStatement("UPDATE guest SET "
 					+ "Date=?, Time=?, Name=?, Phone=?, Email=?, "
-			+ "Party_Size=?, Need=? WHERE ID=?", 
+			+ "PartySize=?, Purpose=? WHERE ID=?", 
 					PreparedStatement.RETURN_GENERATED_KEYS);
 			
 			ps.setString(1, reservation.getDate());

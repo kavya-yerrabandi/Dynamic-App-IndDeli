@@ -34,7 +34,7 @@ public class StaffDao {
 			else
 			{
 				temp =  false;
-				throw new AppException("Error: email or password is not valid.");
+				//throw new AppException("Error: email or password is not valid.");
 			}
 			
 		} catch (SQLException e) {

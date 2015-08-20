@@ -25,6 +25,7 @@ public class StaffController {
 			boolean isAuth = dao.getLogInfo(auth);
 			if(isAuth){
 			resp.setMessage("Login Successful");
+			resp.setPayload(isAuth);
 			}
 			else{
 			resp.setMessage("Login Invalid");

@@ -3,42 +3,78 @@
                               <h4>Make a reservation</h4>
                            
                                <div>
+                               
+                               <div data-ng-show = "guestCtrl.loadDet">
+                               
+                               <h1>You have successfully placed the reservation...!!</h1>
+                               <h3>Please View Your Reservation Details Below:</h3>
+                               <P>Confirmation Number: {{guestCtrl.resDetails.date}}</P>
+                               <p>Date: {{guestCtrl.resDetails.date}}</p>
+                               <p>Time: {{guestCtrl.resDetails.time}}</p>
+                               <p>Name: {{guestCtrl.resDetails.name}}</p>
+                               <p>Phone: {{guestCtrl.resDetails.phone}}</p>
+                               <p>Email Id: {{guestCtrl.resDetails.email}}</p>
+                               <p>Party Size: {{guestCtrl.resDetails.partySize}}</p>
+                               <p>Purpose:{{guestCtrl.resDetails.purpose}}</p>
+                               
+                               </div>
+                               
 
                                 <form role="form" name = "guestForm" novalidate>
                                     <div class="row">
                                         <div class = "col-sm-6">
                                 	    <div class="form-group">
                                 		    <label  for="reserveDate">Date</label>
-                                            <input data-ng-model="guestCtrl.reservation.date" name="date" type="text" class="form-control" id="reserveDate" placeholder="MM/DD/YYYY" required>
+                                            <input data-ng-model="guestCtrl.reservation.date" name="date" type="text" class="form-control"  id="reserveDate" placeholder="MM/DD/YYYY" required>
+                                	    	<div data-ng-messages = "guestForm.date.$error" data-ng-if = "guestForm.date.$dirty" >
+                                	    		<p data-ng-message = "required">*please enter the date</p>
+                                	    	</div>
                                 	    </div>
                                 	    </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="reserveTime">Time</label>
-                                                <input data-ng-model="guestCtrl.reservation.time" name = "time" type="text" class="form-control" id="reserveTime" placeholder="HH:MM">
+                                                <input data-ng-model="guestCtrl.reservation.time" name = "time" type="text" class="form-control" id="reserveTime" placeholder="HH:MM AM/PM" required>
+                                           		<div  data-ng-messages = "guestForm.date.$error" data-ng-if = "guestForm.time.$dirty">
+                                           			<p data-ng-message = "required" >*please enter the time</p>
+                                           		</div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="reserveName">Name</label>
-                                        <input data-ng-model="guestCtrl.reservation.name" name = "text" type="text" class="form-control" id="reserveName" placeholder="Enter Your Name">
+                                        <input data-ng-model="guestCtrl.reservation.name" name = "text" type="text" class="form-control" id="reserveName" placeholder="Enter Your Name" required>
+                                    	<div  data-ng-messages = "guestForm.text.$error" data-ng-if = "guestForm.text.$dirty">
+                                    		<p  data-ng-message = "required">*please enter you name</p>
+                                    	</div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="reservePhone">Phone</label>
-                                        <input data-ng-model="guestCtrl.reservation.phone" type="tel" class="form-control" id="reservePhone" placeholder="Enter Your Phone">
+                                        <input data-ng-model="guestCtrl.reservation.phone" name = "phone" type="text" class="form-control" id="reservePhone" placeholder="Enter Your Phone" data-ng-minlength = "10" data-ng-maxlength = "10" required data-ng-pattern = "/^[0-9]{10}$/">
+                                   		<div  data-ng-messages = "guestForm.phone.$error" data-ng-if = "guestForm.phone.$dirty">
+                                   			<p  data-ng-message = "required">*please enter your phone number</p>
+                                   			<p data-ng-message = "pattern">*phone number must contain 10-digits</p>
+                                   		</div>
                                     </div>
                                     <div class="form-group">
                                         <label for="reserveEmail">Email</label>
-                                        <input data-ng-model="guestCtrl.reservation.email" type="email" class="form-control" id="reserveEmail" placeholder="example@domain.com" required>
+                                        <input data-ng-model="guestCtrl.reservation.email" name = "emailid" type="email" class="form-control" id="reserveEmail" placeholder="example@domain.com" required>
+                                    	<div  data-ng-messages = "guestForm.emailid.$error" data-ng-if = "guestForm.emailid.$dirty">
+                                           	<p data-ng-message = "required" >*please enter the email</p>
+                                           	<p data-ng-message = "email">*please enter a valid format</p>
+                                        </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <div class="form-group">
                                                 <label for="reserveSize">Party Size</label>
-                                                <input data-ng-model="guestCtrl.reservation.number" name = "number" type="number" class="form-control" id="reserveSize" placeholder="# Guests">
+                                                <input data-ng-model="guestCtrl.reservation.partySize" name = "number" type="number" class="form-control" id="reserveSize" placeholder="# Guests" required>
+                                            	<div  data-ng-messages = "guestForm.number.$error" data-ng-if = "guestForm.number.$dirty">
+                                           			<p data-ng-message = "required" >*please specify the number  of guests</p> 
+                                        		</div>
                                             </div>
                                         </div>
                                         <div class="col-sm-9">
